@@ -1,4 +1,4 @@
-import swaggerJSDoc, { Options } from "swagger-jsdoc";
+import swaggerJsdoc, { Options } from 'swagger-jsdoc';
 
 const swaggerOptions: Options = {
   definition: {
@@ -14,11 +14,9 @@ const swaggerOptions: Options = {
       }
     ]
   },
-  apis: [
-    "./src/routers/productRoutes.ts"
-  ]
+  apis: ["./src/routes/productRoutes.ts"]
 };
 
-const swaggerSpec = swaggerJSDoc(swaggerOptions);
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
 
 export default swaggerSpec;
