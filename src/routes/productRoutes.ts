@@ -65,6 +65,7 @@ routes.get("/:id", getProductByID); // Trae un solo producto
  *                - name
  *                - description
  *                - price
+ *                - imgUrl
  *              properties:
  *                name:
  *                  type: string
@@ -72,6 +73,8 @@ routes.get("/:id", getProductByID); // Trae un solo producto
  *                  type: string
  *                price:
  *                  type: number
+ *                imgUrl:
+ *                  type: string
  *      responses:
  *        201:
  *          description: Producto creado
@@ -79,7 +82,66 @@ routes.get("/:id", getProductByID); // Trae un solo producto
  *          description: Error en el servidor
  */
 routes.post("/", createProduct); // Crear un producto
+
+/**
+ * @swagger
+ * /api/products/{id}:
+ *   put:
+ *     summary: Actualizar un producto existente
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID del producto
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               price:
+ *                 type: number
+ *               imgUrl:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Producto actualizado
+ *       404:
+ *         description: Producto no encontrado
+ *       500:
+ *         description: Error en el servidor
+ */
 routes.put("/:id", updateProduct); // Actualizar un producto
+
+/**
+ * @swagger
+ * /api/products/{id}:
+ *   delete:
+ *     summary: Eliminar un producto
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID del producto
+ *     responses:
+ *       200:
+ *         description: Producto eliminado
+ *       404:
+ *         description: Producto no encontrado
+ *       500:
+ *         description: Error en el servidor
+ */
 routes.delete("/:id", deleteProduct); // Borrar un producto
 
 export default routes;
